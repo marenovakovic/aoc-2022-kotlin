@@ -25,5 +25,8 @@ class Day1Test {
         assertEquals(4000, partTwo("1000\n\n1000\n\n2000"))
         assertEquals(4000, partTwo("1000\n\n1000\n\n2000\n\n500"))
         assertEquals(5000, partTwo("1000\n\n1000\n\n2000\n\n500\n\n2000"))
+
+        val testInput = readInput("day1/test_input.txt")
+        assertEquals(45000, partTwo(testInput))
     }
 }
