@@ -1,4 +1,5 @@
 import day1.partOne
+import day1.partTwo
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -16,5 +17,13 @@ class Day1Test {
 
         val testInput = readInput("day1/test_input.txt")
         assertEquals(24000, partOne(testInput))
+    }
+
+    @Test
+    fun partTwo() {
+        assertEquals(3000, partTwo("1000\n\n1000\n\n1000"))
+        assertEquals(4000, partTwo("1000\n\n1000\n\n2000"))
+        assertEquals(4000, partTwo("1000\n\n1000\n\n2000\n\n500"))
+        assertEquals(5000, partTwo("1000\n\n1000\n\n2000\n\n500\n\n2000"))
     }
 }
