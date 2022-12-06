@@ -11,21 +11,21 @@ fun main() {
 
 fun partOne(input: String) =
     input
-        .caloriesPerElf()
+        .sumOfCaloriesPerElf()
         .max()
 
 fun partTwo(input: String) =
     input
-        .caloriesPerElf()
+        .sumOfCaloriesPerElf()
         .topElves(3)
 
-private fun String.caloriesPerElf() =
-    listOfCaloriesPerElf()
+private fun String.sumOfCaloriesPerElf() =
+    caloriesPerElf()
         .map(String::lines)
         .map { it.map(String::toInt) }
         .map(List<Int>::sum)
 
-private fun String.listOfCaloriesPerElf() =
+private fun String.caloriesPerElf() =
     split("\n\n")
 
 private fun List<Int>.topElves(n: Int) =
