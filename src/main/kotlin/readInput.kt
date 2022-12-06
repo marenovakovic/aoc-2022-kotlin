@@ -1,4 +1,4 @@
 import java.io.File
 
 fun readInput(name: String) =
-    File("src", "$name.txt").readLines()
+    File("src/main/kotlin/", name).readText()
