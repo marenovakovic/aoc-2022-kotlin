@@ -17,9 +17,7 @@ fun partOne(input: String) =
 fun partTwo(input: String) =
     input
         .caloriesPerElf()
-        .sortedDescending()
-        .take(3)
-        .sum()
+        .topElves(3)
 
 private fun String.caloriesPerElf() =
     listOfCaloriesPerElf()
@@ -29,3 +27,8 @@ private fun String.caloriesPerElf() =
 
 private fun String.listOfCaloriesPerElf() =
     split("\n\n")
+
+private fun List<Int>.topElves(n: Int) =
+    sortedDescending()
+        .take(n)
+        .sum()
