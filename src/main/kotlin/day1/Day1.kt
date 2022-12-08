@@ -5,21 +5,21 @@ import readInput
 fun main() {
     val input = readInput("day1/input.txt")
 
-    println(partOne(input))
-    println(partTwo(input))
+    println(findMaxCalories(input))
+    println(findCaloriesForTopThreeElves(input))
 }
 
-fun partOne(input: String) =
-    input
-        .sumOfCaloriesPerElf()
+fun findMaxCalories(inventory: String) =
+    inventory
+        .sumCaloriesPerElf()
         .max()
 
-fun partTwo(input: String) =
-    input
-        .sumOfCaloriesPerElf()
+fun findCaloriesForTopThreeElves(inventory: String) =
+    inventory
+        .sumCaloriesPerElf()
         .topElves(3)
 
-private fun String.sumOfCaloriesPerElf() =
+private fun String.sumCaloriesPerElf() =
     caloriesPerElf()
         .map(String::lines)
         .map { it.map(String::toInt) }
