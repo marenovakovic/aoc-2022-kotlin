@@ -28,7 +28,7 @@ class Day2Test {
     }
 
     @Test
-    fun `play game (part one)`() {
+    fun `play assumed game (part one)`() {
         val score = playAssumedStrategy("day2/input.txt")
 
         assertEquals(12458, score)
