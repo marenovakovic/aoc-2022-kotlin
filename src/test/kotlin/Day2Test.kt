@@ -9,7 +9,7 @@ import kotlin.test.assertEquals
 class Day2Test {
 
     @Test
-    fun `parse input`() {
+    fun `parse assumed strategy`() {
         val strategy = readAssumedStrategy("day2/test_input.txt")
 
         val expectedStrategy = listOf(
@@ -21,7 +21,7 @@ class Day2Test {
     }
 
     @Test
-    fun `play test game`() {
+    fun `play assumed test game`() {
         val score = playAssumedStrategy("day2/test_input.txt")
 
         assertEquals(15, score)
