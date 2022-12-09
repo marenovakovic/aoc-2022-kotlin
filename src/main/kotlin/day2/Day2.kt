@@ -47,10 +47,10 @@ private fun Play(s: String) =
         else -> throw IllegalArgumentException("illegal play :$s")
     }
 
-fun playStrategy(fileName: String) =
-    readStrategy(fileName).sumOf(Round::score)
+fun playAssumedStrategy(fileName: String) =
+    readAssumedStrategy(fileName).sumOf(Round::score)
 
-fun readStrategy(fileName: String) =
+fun readAssumedStrategy(fileName: String) =
     readInput(fileName)
         .splitIntoRounds()
         .map(String::splitIntoPlays)
