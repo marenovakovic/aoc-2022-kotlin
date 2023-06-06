@@ -1,13 +1,17 @@
 package day3
 
-val String.compartments
-    get() = substring(0, length / 2) to substring(length / 2)
+import readInput
 
-val Char.priority
-    get() = if (this.isLowerCase()) this.code - 96 else (this.code - 65 + 27)
+fun compartments(s: String) = s.substring(0, s.length / 2) to s.substring(s.length / 2)
 
-val List<Char>.priority
-    get() = sumOf { it.priority }
+fun priority(c: Char) = if (c.isLowerCase()) c.code - 96 else (c.code - 65 + 27)
 
-val Pair<String, String>.commonItems
-    get() = first.toSet().intersect(second.toSet()).toList()
+fun priority(chars: List<Char>) = chars.sumOf { priority(it) }
+
+fun commonItems(pair: Pair<String, String>) = pair.first.toSet().intersect(pair.second.toSet()).toList()
+
+fun readTestInput() =
+    readInput("day3/test_input.txt").lines()
+
+fun readRealInput() =
+    readInput("day3/input.txt").lines()
