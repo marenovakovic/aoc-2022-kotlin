@@ -1,8 +1,10 @@
+import day3.Group
 import day3.commonItems
 import day3.compartments
 import day3.priority
 import day3.readRealInput
 import day3.readTestInput
+import day3.splitIntoGroups
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
 
@@ -43,6 +45,18 @@ class Day3Test : DescribeSpec({
                 .map(::commonItems)
                 .sumOf(::priority)
                 .shouldBeEqual(8185)
+        }
+    }
+    context("group badge") {
+        it("split into groups") {
+            splitIntoGroups(listOf("a", "a", "a")) shouldBeEqual listOf(Group("a", "a", "a"))
+            splitIntoGroups(listOf("a", "a", "a", "b", "b", "b"))
+                .shouldBeEqual(
+                    listOf(
+                        Group("a", "a", "a"),
+                        Group("b", "b", "b"),
+                    )
+                )
         }
     }
 })
