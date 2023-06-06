@@ -2,21 +2,23 @@ package day3
 
 import readInput
 
-typealias Group = Triple<String, String, String>
+typealias Item = Char
+typealias Rucksack = String
+typealias Group = Triple<Rucksack, Rucksack, Rucksack>
 
-fun compartments(s: String) =
-    s.substring(0, s.length / 2) to s.substring(s.length / 2)
+fun compartments(rucksack: Rucksack) =
+    rucksack.substring(0, rucksack.length / 2) to rucksack.substring(rucksack.length / 2)
 
-fun priority(c: Char) =
-    if (c.isLowerCase()) c.code - 96 else (c.code - 65 + 27)
+fun priority(i: Item) =
+    if (i.isLowerCase()) i.code - 96 else (i.code - 65 + 27)
 
-fun priority(chars: List<Char>) =
-    chars.sumOf { priority(it) }
+fun priority(items: List<Item>) =
+    items.sumOf { priority(it) }
 
 fun commonItems(pair: Pair<String, String>) =
     pair.first.toSet().intersect(pair.second.toSet()).toList()
 
-fun splitIntoGroups(rucksacks: List<String>) =
+fun splitIntoGroups(rucksacks: List<Rucksack>) =
     rucksacks.chunked(3) { (first, second, third) -> Group(first, second, third) }
 
 fun readTestInput() =
