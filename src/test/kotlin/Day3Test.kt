@@ -72,5 +72,17 @@ class Day3Test : DescribeSpec({
                 )
             ) shouldBeEqual listOf('r')
         }
+        it("part two, test input") {
+            readTestInput()
+                .let(::splitIntoGroups)
+                .map(::findGroupBadge)
+                .sumOf { priority(it) } shouldBeEqual 70
+        }
+        it("part two, real input") {
+            readRealInput()
+                .let(::splitIntoGroups)
+                .map(::findGroupBadge)
+                .sumOf { priority(it) } shouldBeEqual 2817
+        }
     }
 })
