@@ -63,6 +63,14 @@ class Day3Test : DescribeSpec({
             findGroupBadge(Group("a", "a", "a")) shouldBeEqual listOf('a')
             findGroupBadge(Group("b", "b", "b")) shouldBeEqual listOf('b')
             findGroupBadge(Group("ab", "ac", "ad")) shouldBeEqual listOf('a')
+            findGroupBadge(Group("ab", "acccc", "add")) shouldBeEqual listOf('a')
+            findGroupBadge(
+                Group(
+                    "vJrwpWtwJgWrhcsFMMfFFhFp",
+                    "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+                    "PmmdzqPrVvPwwTWBwg",
+                )
+            ) shouldBeEqual listOf('r')
         }
     }
 })

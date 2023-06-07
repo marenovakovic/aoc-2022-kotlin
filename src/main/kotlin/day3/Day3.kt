@@ -26,7 +26,7 @@ fun findGroupBadge(group: Group): List<Item> {
     val (first, second, third) = group
     val firstSecondCommon = commonItems(first to second).joinToString()
     val secondThirdCommon = commonItems(second to third).joinToString()
-    return commonItems(firstSecondCommon to secondThirdCommon)
+    return commonItems(firstSecondCommon to secondThirdCommon).filter(Item::isLetter)
 }
 
 fun readTestInput() =
