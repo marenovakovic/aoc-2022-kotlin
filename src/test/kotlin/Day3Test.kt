@@ -1,6 +1,7 @@
 import day3.Group
 import day3.commonItems
 import day3.compartments
+import day3.findGroupBadge
 import day3.priority
 import day3.readRealInput
 import day3.readTestInput
@@ -57,6 +58,11 @@ class Day3Test : DescribeSpec({
                         Group("b", "b", "b"),
                     )
                 )
+        }
+        it("find group badge") {
+            findGroupBadge(Group("a", "a", "a")) shouldBeEqual listOf('a')
+            findGroupBadge(Group("b", "b", "b")) shouldBeEqual listOf('b')
+            findGroupBadge(Group("ab", "ac", "ad")) shouldBeEqual listOf('a')
         }
     }
 })

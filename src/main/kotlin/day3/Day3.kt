@@ -21,6 +21,13 @@ fun commonItems(pair: Pair<String, String>) =
 fun splitIntoGroups(rucksacks: List<Rucksack>) =
     rucksacks.chunked(3) { (first, second, third) -> Group(first, second, third) }
 
+fun findGroupBadge(group: Group): List<Item> {
+    val (first, second, third) = group
+    val firstSecondCommon = commonItems(first to second).joinToString()
+    val secondThirdCommon = commonItems(second to third).joinToString()
+    return commonItems(firstSecondCommon to secondThirdCommon)
+}
+
 fun readTestInput() =
     readInput("day3/test_input.txt").lines()
 
