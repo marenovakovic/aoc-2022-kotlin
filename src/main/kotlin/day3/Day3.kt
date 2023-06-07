@@ -4,6 +4,7 @@ import readInput
 
 typealias Item = Char
 typealias Rucksack = String
+typealias Compartment = Pair<String, String>
 typealias Group = Triple<Rucksack, Rucksack, Rucksack>
 
 fun compartments(rucksack: Rucksack) =
@@ -15,8 +16,8 @@ fun priority(i: Item) =
 fun priority(items: List<Item>) =
     items.sumOf { priority(it) }
 
-fun commonItems(pair: Pair<String, String>) =
-    pair.first.toSet().intersect(pair.second.toSet()).toList()
+fun commonItems(compartment: Compartment) =
+    compartment.first.toSet().intersect(compartment.second.toSet()).toList()
 
 fun splitIntoGroups(rucksacks: List<Rucksack>) =
     rucksacks.chunked(3) { (first, second, third) -> Group(first, second, third) }
