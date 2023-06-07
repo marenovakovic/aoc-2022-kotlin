@@ -1,6 +1,8 @@
 package day4
 
-fun parseSection(assignment: String): Pair<String, String> =
+typealias Assignment = String
+
+fun parseSection(assignment: Assignment): Pair<String, String> =
     assignment
         .split(',')
         .let { it.first() to it.last() }
