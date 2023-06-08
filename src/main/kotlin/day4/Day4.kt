@@ -24,12 +24,10 @@ private fun overlap(pairAssignment: PairAssignment) =
     pairAssignment.first.intersect(pairAssignment.second)
 
 fun isFullOverlap(pairAssignment: PairAssignment): Boolean {
-    val (first, second) = pairAssignment
-    return first.fullyContains(second) || second.fullyContains(first)
+    val overlap = overlap(pairAssignment)
+    return overlap.size == pairAssignment.first.count() ||
+            overlap.size == pairAssignment.second.count()
 }
-
-private fun Assignment.fullyContains(other: Assignment) =
-    other.first in this && other.last in this
 
 fun testLines() = readInput("day4/test_input.txt").lines()
 fun realLines() = readInput("day4/input.txt").lines()
