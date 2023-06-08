@@ -1,5 +1,7 @@
 package day4
 
+import readInput
+
 typealias PairAssignment = Pair<Assignment, Assignment>
 typealias Assignment = IntRange
 
@@ -25,3 +27,5 @@ fun isFullOverlap(pairAssignment: PairAssignment): Boolean {
 
 private fun Assignment.fullyContains(other: Assignment) =
     other.first in this && other.last in this
+
+fun testLines() = readInput("day4/test_input.txt").lines()
