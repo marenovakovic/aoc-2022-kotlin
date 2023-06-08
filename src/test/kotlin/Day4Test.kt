@@ -1,3 +1,4 @@
+import day4.isFullOverlap
 import day4.overlaps
 import day4.toPairAssignment
 import io.kotest.core.spec.style.DescribeSpec
@@ -16,6 +17,12 @@ class Day4Test : DescribeSpec({
             overlaps(2..4, 3..5) shouldBeEqual true
             overlaps(2..4, 5..7) shouldBeEqual false
             overlaps(5..7, 1..3) shouldBeEqual false
+        }
+        it("full overlap") {
+            isFullOverlap(2..4 to 3..3) shouldBeEqual true
+            isFullOverlap(1..8 to 3..8) shouldBeEqual true
+            isFullOverlap(2..4 to 3..5) shouldBeEqual false
+            isFullOverlap(2..2 to 3..5) shouldBeEqual false
         }
     }
 })

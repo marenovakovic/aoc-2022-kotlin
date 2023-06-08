@@ -16,3 +16,9 @@ private fun pairAssignment(assignments: List<Assignment>) = assignments.first() 
 
 fun overlaps(a: Assignment, b: Assignment) =
     a.intersect(b).isNotEmpty()
+
+fun isFullOverlap(pairAssignment: PairAssignment): Boolean {
+    val (first, second) = pairAssignment
+    return (first.first in second && first.last in second) ||
+            (second.first in first && second.last in first)
+}
