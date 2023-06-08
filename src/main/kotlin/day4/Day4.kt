@@ -12,6 +12,7 @@ fun String.toPairAssignment() =
         .let(::pairAssignment)
 
 private fun sectionDigits(s: String) = s.firstDigit..s.lastDigit
+
 private fun pairAssignment(assignments: List<Assignment>) = assignments.first() to assignments.last()
 
 fun overlaps(a: Assignment, b: Assignment) =
