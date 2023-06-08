@@ -1,5 +1,6 @@
 import day4.isFullOverlap
 import day4.overlaps
+import day4.realLines
 import day4.testLines
 import day4.toPairAssignment
 import io.kotest.core.spec.style.DescribeSpec
@@ -13,11 +14,11 @@ class Day4Test : DescribeSpec({
             "8-9,9-9".toPairAssignment() shouldBeEqual (8..9 to 9..9)
         }
         it("overlap") {
-            overlaps(2..4, 2..3) shouldBeEqual true
-            overlaps(3..3, 2..8) shouldBeEqual true
-            overlaps(2..4, 3..5) shouldBeEqual true
-            overlaps(2..4, 5..7) shouldBeEqual false
-            overlaps(5..7, 1..3) shouldBeEqual false
+            overlaps(2..4 to 2..3) shouldBeEqual true
+            overlaps(3..3 to 2..8) shouldBeEqual true
+            overlaps(2..4 to 3..5) shouldBeEqual true
+            overlaps(2..4 to 5..7) shouldBeEqual false
+            overlaps(5..7 to 1..3) shouldBeEqual false
         }
         it("full overlap") {
             isFullOverlap(2..4 to 3..3) shouldBeEqual true
@@ -29,6 +30,11 @@ class Day4Test : DescribeSpec({
             testLines()
                 .map { it.toPairAssignment() }
                 .count(::isFullOverlap) shouldBeEqual 2
+        }
+        xit("full overlap, real input") {
+            realLines()
+                .map { it.toPairAssignment() }
+                .count(::isFullOverlap) shouldBeEqual 657
         }
     }
 })
