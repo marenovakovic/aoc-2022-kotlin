@@ -24,10 +24,23 @@ private fun overlap(pairAssignment: PairAssignment) =
     pairAssignment.first.intersect(pairAssignment.second)
 
 fun isFullOverlap(pairAssignment: PairAssignment): Boolean {
-    val overlap = overlap(pairAssignment)
-    return overlap.size == pairAssignment.first.count() ||
-            overlap.size == pairAssignment.second.count()
+    val (first, second) = pairAssignment
+    return first fullyOverlaps second || second fullyOverlaps first
 }
 
-fun testLines() = readInput("day4/test_input.txt").lines()
-fun realLines() = readInput("day4/input.txt").lines()
+private infix fun Assignment.fullyOverlaps(other: Assignment) =
+    first <= other.first && last >= other.last
+
+fun solvePartOneTestInput() =
+    testLines()
+        .map { it.toPairAssignment() }
+        .count(::isFullOverlap)
+
+private fun testLines() = readInput("day4/test_input.txt").lines()
+
+fun solvePartOneRealInput() =
+    realLines()
+        .map { it.toPairAssignment() }
+        .count(::isFullOverlap)
+
+private fun realLines() = readInput("day4/input.txt").lines()

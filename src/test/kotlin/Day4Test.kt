@@ -1,7 +1,7 @@
 import day4.isFullOverlap
 import day4.overlaps
-import day4.realLines
-import day4.testLines
+import day4.solvePartOneRealInput
+import day4.solvePartOneTestInput
 import day4.toPairAssignment
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
@@ -27,14 +27,10 @@ class Day4Test : DescribeSpec({
             isFullOverlap(2..2 to 3..5) shouldBeEqual false
         }
         it("full overlap, test input") {
-            testLines()
-                .map { it.toPairAssignment() }
-                .count(::isFullOverlap) shouldBeEqual 2
+            solvePartOneTestInput() shouldBeEqual 2
         }
-        xit("full overlap, real input") {
-            realLines()
-                .map { it.toPairAssignment() }
-                .count(::isFullOverlap) shouldBeEqual 657
+        it("full overlap, real input") {
+            solvePartOneRealInput() shouldBeEqual 657
         }
     }
 })
