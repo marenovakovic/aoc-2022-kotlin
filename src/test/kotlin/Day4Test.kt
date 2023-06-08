@@ -2,6 +2,8 @@ import day4.isFullOverlap
 import day4.overlaps
 import day4.solvePartOneRealInput
 import day4.solvePartOneTestInput
+import day4.solvePartTwoRealInput
+import day4.solvePartTwoTestInput
 import day4.toPairAssignment
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
@@ -31,6 +33,15 @@ class Day4Test : DescribeSpec({
         }
         it("full overlap, real input") {
             solvePartOneRealInput() shouldBeEqual 657
+        }
+    }
+    context("part two") {
+        it("part two, test input") {
+            solvePartTwoTestInput() shouldBeEqual 4
+        }
+
+        it("part two, real input") {
+            solvePartTwoRealInput() shouldBeEqual 938
         }
     }
 })
