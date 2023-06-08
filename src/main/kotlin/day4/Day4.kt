@@ -13,9 +13,11 @@ fun String.toPairAssignment() =
         .map(::sectionDigits)
         .let(::pairAssignment)
 
-private fun sectionDigits(s: String) = s.firstDigit..s.lastDigit
+private fun sectionDigits(s: String) =
+    s.firstDigit..s.lastDigit
 
-private fun pairAssignment(assignments: List<Assignment>) = assignments.first() to assignments.last()
+private fun pairAssignment(assignments: List<Assignment>) =
+    assignments.first() to assignments.last()
 
 infix fun Assignment.overlaps(other: Assignment) =
     first <= other.last && other.first <= last
@@ -33,11 +35,13 @@ fun solvePartOneTestInput() =
         .map { it.toPairAssignment() }
         .count(::isFullOverlap)
 
-private fun testLines() = readInput("day4/test_input.txt").lines()
+private fun testLines() =
+    readInput("day4/test_input.txt").lines()
 
 fun solvePartOneRealInput() =
     realLines()
         .map { it.toPairAssignment() }
         .count(::isFullOverlap)
 
-private fun realLines() = readInput("day4/input.txt").lines()
+private fun realLines() =
+    readInput("day4/input.txt").lines()
