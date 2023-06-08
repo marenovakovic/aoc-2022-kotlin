@@ -7,7 +7,7 @@ import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
 
 class Day4Test : DescribeSpec({
-    context("section") {
+    context("part one") {
         it("can parse assignment") {
             "2-4,6-8".toPairAssignment() shouldBeEqual (2..4 to 6..8)
             "1-3,5-7".toPairAssignment() shouldBeEqual (1..3 to 5..7)
