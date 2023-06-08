@@ -1,6 +1,5 @@
 package day4
 
-import java.awt.geom.Rectangle2D.intersect
 import readInput
 
 typealias PairAssignment = Pair<Assignment, Assignment>
@@ -19,7 +18,10 @@ private fun sectionDigits(s: String) = s.firstDigit..s.lastDigit
 private fun pairAssignment(assignments: List<Assignment>) = assignments.first() to assignments.last()
 
 fun overlaps(pairAssignment: PairAssignment) =
-    pairAssignment.first.intersect(pairAssignment.second).isNotEmpty()
+    overlap(pairAssignment).isNotEmpty()
+
+private fun overlap(pairAssignment: PairAssignment) =
+    pairAssignment.first.intersect(pairAssignment.second)
 
 fun isFullOverlap(pairAssignment: PairAssignment): Boolean {
     val (first, second) = pairAssignment
