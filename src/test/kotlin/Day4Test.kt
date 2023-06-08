@@ -14,11 +14,11 @@ class Day4Test : DescribeSpec({
             "8-9,9-9".toPairAssignment() shouldBeEqual (8..9 to 9..9)
         }
         it("overlap") {
-            overlaps(2..4 to 2..3) shouldBeEqual true
-            overlaps(3..3 to 2..8) shouldBeEqual true
-            overlaps(2..4 to 3..5) shouldBeEqual true
-            overlaps(2..4 to 5..7) shouldBeEqual false
-            overlaps(5..7 to 1..3) shouldBeEqual false
+            2..4 overlaps 2..3 shouldBeEqual true
+            3..3 overlaps 2..8 shouldBeEqual true
+            2..4 overlaps 3..5 shouldBeEqual true
+            2..4 overlaps 5..7 shouldBeEqual false
+            5..7 overlaps 1..3 shouldBeEqual false
         }
         it("full overlap") {
             isFullOverlap(2..4 to 3..3) shouldBeEqual true

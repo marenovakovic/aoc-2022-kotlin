@@ -17,11 +17,11 @@ private fun sectionDigits(s: String) = s.firstDigit..s.lastDigit
 
 private fun pairAssignment(assignments: List<Assignment>) = assignments.first() to assignments.last()
 
-fun overlaps(pairAssignment: PairAssignment) =
-    overlap(pairAssignment).isNotEmpty()
+infix fun Assignment.overlaps(other: Assignment) =
+    first <= other.last && other.first <= last
 
-private fun overlap(pairAssignment: PairAssignment) =
-    pairAssignment.first.intersect(pairAssignment.second)
+private infix fun Assignment.overlap(other: Assignment) =
+    this.intersect(other)
 
 fun isFullOverlap(pairAssignment: PairAssignment): Boolean {
     val (first, second) = pairAssignment
