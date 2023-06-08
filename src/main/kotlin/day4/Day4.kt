@@ -19,6 +19,8 @@ fun overlaps(a: Assignment, b: Assignment) =
 
 fun isFullOverlap(pairAssignment: PairAssignment): Boolean {
     val (first, second) = pairAssignment
-    return (first.first in second && first.last in second) ||
-            (second.first in first && second.last in first)
+    return first.fullyContains(second) || second.fullyContains(first)
 }
+
+private fun Assignment.fullyContains(other: Assignment) =
+    other.first in this && other.last in this
