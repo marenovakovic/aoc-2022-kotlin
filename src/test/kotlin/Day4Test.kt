@@ -1,14 +1,14 @@
 import day4.overlaps
-import day4.parseSection
+import day4.toPairAssignment
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.equals.shouldBeEqual
 
 class Day4Test : DescribeSpec({
     context("section") {
         it("can parse assignment") {
-            parseSection("2-4,6-8") shouldBeEqual (2..4 to 6..8)
-            parseSection("1-3,5-7") shouldBeEqual (1..3 to 5..7)
-            parseSection("8-9,9-9") shouldBeEqual (8..9 to 9..9)
+            "2-4,6-8".toPairAssignment() shouldBeEqual (2..4 to 6..8)
+            "1-3,5-7".toPairAssignment() shouldBeEqual (1..3 to 5..7)
+            "8-9,9-9".toPairAssignment() shouldBeEqual (8..9 to 9..9)
         }
         it("overlap") {
             overlaps(2..4, 2..3) shouldBeEqual true

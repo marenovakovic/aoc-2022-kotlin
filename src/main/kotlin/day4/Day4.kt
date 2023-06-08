@@ -3,9 +3,8 @@ package day4
 typealias PairAssignment = Pair<Assignment, Assignment>
 typealias Assignment = IntRange
 
-fun parseSection(line: String): PairAssignment =
-    line
-        .split(',')
+fun String.toPairAssignment(): PairAssignment =
+    split(',')
         .map { it.first().digitToInt()..it.last().digitToInt() }
         .let { it.first() to it.last() }
 
