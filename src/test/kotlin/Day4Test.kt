@@ -36,11 +36,11 @@ class Day4Test : DescribeSpec({
         }
     }
     context("part two") {
-        it("part two, test input") {
+        it("test input") {
             solvePartTwoTestInput() shouldBeEqual 4
         }
 
-        it("part two, real input") {
+        it("real input") {
             solvePartTwoRealInput() shouldBeEqual 938
         }
     }
